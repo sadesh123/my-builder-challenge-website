@@ -1,255 +1,257 @@
-/* ==============================
-   Global Reset & Variables
-================================= */
+/* ============================
+   Global Styles & Variables
+============================ */
+:root {
+  --primary: #4f46e5;    /* Indigo */
+  --secondary: #06b6d4;  /* Cyan */
+  --bg: #f9fafb;         /* Light background */
+  --text: #1f2937;       /* Slate gray */
+  --muted: #6b7280;      /* Muted gray */
+  --radius: 14px;
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --font-main: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --primary: #4f46e5;   /* Indigo */
-  --secondary: #22d3ee; /* Cyan */
-  --accent: #facc15;    /* Yellow */
-  --dark: #0f172a;      /* Dark Navy */
-  --light: #f8fafc;     /* Light Background */
-  --text: #1e293b;      /* Slate */
-  --muted: #64748b;     /* Gray */
-  --radius: 12px;
-  --font-main: "Inter", sans-serif;
-  --font-heading: "Poppins", sans-serif;
-}
-
 body {
   font-family: var(--font-main);
-  background: var(--light);
+  background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
-  scroll-behavior: smooth;
+  line-height: 1.7;
 }
 
-/* ==============================
-   Header
-================================= */
-header {
-  background: var(--dark);
-  color: white;
-  padding: 2rem;
+/* ============================
+   Hero
+============================ */
+.hero {
   text-align: center;
-}
-
-header h1 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.1rem;
-  color: var(--secondary);
-}
-
-/* ==============================
-   Navigation
-================================= */
-nav {
-  display: flex;
-  justify-content: center;
-  background: white;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav a {
-  color: var(--dark);
-  text-decoration: none;
-  margin: 0 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--primary);
-}
-
-/* ==============================
-   Section Layout
-================================= */
-section {
   padding: 4rem 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  animation: fadeIn 1.2s ease;
 }
 
-section h2 {
+.hero img.profile-photo {
+  width: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
   font-family: var(--font-heading);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.aws-link {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.aws-link:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+/* ============================
+   Section Headings
+============================ */
+section h3 {
+  font-size: 1.8rem;
+  font-family: var(--font-heading);
   text-align: center;
+  margin-bottom: 1.5rem;
   position: relative;
 }
-
-section h2::after {
+section h3::after {
   content: "";
   width: 60px;
-  height: 4px;
+  height: 3px;
   background: var(--primary);
   display: block;
   margin: 0.5rem auto 0;
   border-radius: 4px;
 }
 
-/* ==============================
-   About Section
-================================= */
-.about {
-  text-align: center;
-}
-
-.about p {
-  font-size: 1.1rem;
-  color: var(--muted);
-  max-width: 700px;
-  margin: 1rem auto;
-}
-
-/* ==============================
+/* ============================
    Fun Facts
-================================= */
-.facts {
+============================ */
+.facts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  padding: 1rem;
 }
 
 .fact-card {
   background: white;
   padding: 1.5rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
-
 .fact-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
-
-.fact-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.fact-card h4 {
   color: var(--primary);
+  margin-bottom: 0.5rem;
 }
 
-/* ==============================
-   Project Showcase (Gist)
-================================= */
-.project {
-  margin-top: 3rem;
-}
-
-.project-card {
+/* ============================
+   Project Highlight
+============================ */
+.project-highlight {
+  text-align: center;
   background: white;
+  margin: 3rem auto;
   padding: 2rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  animation: fadeUp 1s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.project-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: var(--dark);
-}
-
-.project-card p {
-  font-size: 1rem;
-  color: var(--muted);
+.project-highlight p {
   margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
-.project-card a {
+.project-highlight a {
   display: inline-block;
+}
+
+.cta-button {
   background: var(--primary);
   color: white;
-  text-decoration: none;
   padding: 0.8rem 1.6rem;
   border-radius: var(--radius);
-  font-weight: 500;
-  transition: background 0.3s;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
-
-.project-card a:hover {
+.cta-button:hover {
   background: var(--secondary);
 }
 
-/* ==============================
+/* ============================
+   Learning Goals
+============================ */
+.aws-journey {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.goals-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding-left: 0;
+}
+.goals-list li {
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+.goals-list li::before {
+  content: "🌟";
+  margin-right: 0.6rem;
+}
+
+/* ============================
    Contact Form
-================================= */
-form {
+============================ */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
   background: white;
   padding: 2rem;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  max-width: 600px;
-  margin: 0 auto;
+  box-shadow: var(--shadow);
 }
 
 form label {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
-
 form input,
 form textarea {
   width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #e2e8f0;
+  padding: 0.8rem;
   border-radius: var(--radius);
-  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
   font-family: var(--font-main);
 }
-
 form button {
-  background: var(--primary);
-  color: white;
+  width: 100%;
   border: none;
-  padding: 0.9rem 1.8rem;
-  border-radius: var(--radius);
-  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-form button:hover {
-  background: var(--secondary);
-}
-
-/* ==============================
-   Footer
-================================= */
+/* ============================
+   Footer + Stickman
+============================ */
 footer {
   background: var(--dark);
+  background: #111827;
   color: white;
+  padding: 2rem;
   text-align: center;
-  padding: 1.5rem;
-  margin-top: 4rem;
-  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
 }
 
-footer a {
-  color: var(--accent);
-  text-decoration: none;
+footer::before {
+  content: "🏃";
+  position: absolute;
+  left: -50px;
+  bottom: 10px;
+  font-size: 2rem;
+  animation: runAcross 8s linear infinite;
+}
+
+/* ============================
+   Animations
+============================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes runAcross {
+  0% { left: -50px; }
+  100% { left: 100%; }
 }
