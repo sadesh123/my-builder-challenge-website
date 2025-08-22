@@ -215,25 +215,13 @@ form button {
 }
 
 /* ============================
-   Footer + Stickman
+   Footer
 ============================ */
 footer {
-  background: var(--dark);
   background: #111827;
   color: white;
   padding: 2rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-footer::before {
-  content: "🏃";
-  position: absolute;
-  left: -50px;
-  bottom: 10px;
-  font-size: 2rem;
-  animation: runAcross 8s linear infinite;
 }
 
 /* ============================
@@ -251,7 +239,24 @@ footer::before {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes runAcross {
-  0% { left: -50px; }
-  100% { left: 100%; }
+
+/* ============================
+   Responsive
+============================ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero .tagline {
+    font-size: 1rem;
+  }
+  .hero img.profile-photo {
+    width: 100px;
+  }
+  .facts-grid {
+    gap: 1rem;
+  }
+  section h3 {
+    font-size: 1.5rem;
+  }
 }
